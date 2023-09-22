@@ -1,0 +1,5 @@
+package com.cozentus.DAO;
+
+public class UserDAO {
+
+}

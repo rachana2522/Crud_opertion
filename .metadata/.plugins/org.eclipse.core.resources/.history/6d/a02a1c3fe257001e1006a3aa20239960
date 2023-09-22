@@ -1,0 +1,88 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<html>
+<head>
+<title>User Management Application</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark"
+			style="background-color: blue">
+			<div>
+				<a href="https://www.javaguides.net" class="navbar-brand"> User Management App </a>
+			</div>
+
+			<ul class="navbar-nav">
+				<li><a href="<%=request.getContextPath()%>/new"
+					class="nav-link">Add Users</a></li>
+			</ul>
+			<ul class="navbar-nav">
+				<li><a href="<%=request.getContextPath()%>/list"
+					class="nav-link">Info</a></li>
+			</ul>
+		</nav>
+	</header>
+	<br>
+	<div class="container col-md-5">
+		<div class="card">
+			<div class="card-body">
+				<c:if test="${userById != null}">
+					<form action="update" method="post">
+				</c:if>
+				<c:if test="${userById == null}">
+					<form action="insert" method="post">
+				</c:if>
+
+				<caption>
+					<h2>
+						<c:if test="${userById != null}">
+            			Edit User
+            		</c:if>
+						<c:if test="${userById == null}">
+            			Add New User
+            		</c:if>
+					</h2>
+				</caption>
+            		
+				<c:if test="${userById != null}">
+					 <form action ="insert" method ="post">
+				</c:if>
+				<c:if test="${userById != null}">
+					 <form action ="update" method ="post">
+				</c:if>
+              <form action ="insert" method ="post">
+				<div class="form-group">
+					<label for = "ID"></label> 
+					<input type="text" class="form-control" name="name" placeholder="Enter id">
+				</div>
+
+				<div class="form-group">
+					<label for= "Name"></label> 
+					<input type="text" class="form-control" name="name" placeholder="Enter Name">
+				</div>
+
+				<div class="form-group">
+					<label for="Email address"></label> 
+					<input type="email" class="form-control" name="name"placeholder="Enter Email">
+				</div>
+				<div class="form-group">
+					<label for="Country"></label> 
+					<input type="text" value=" class="form-control" name="text"placeholder="Enter country">
+				</div>
+                 <c:if test ="${userById == null }">
+				<input type="submit" class="btn btn-success" value="insert user"/>
+				</c:if>
+				<c:if test ="${userById != null }">
+				<input type="submit" class="btn btn-success" value="update user"/>
+				</c:if>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
